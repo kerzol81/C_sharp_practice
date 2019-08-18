@@ -15,7 +15,7 @@ namespace value_vs_reference
         {
             Console.WriteLine("Cat's data:");
             Console.WriteLine($"age: {this.age}");
-            Console.WriteLine($"lives: {this.lifes}");
+            Console.WriteLine($"lives: {this.lifes}\n");
         }
 
     }
@@ -25,15 +25,18 @@ namespace value_vs_reference
         static void Main(string[] args)
         {
             Cat c = new Cat();
+            Cat d = c;
+
             ChangeLife(c);
 
             c.Display();
+            d.Display();
 
             Console.ReadKey();
         }
 
         static void ChangeLife(Cat c)
-        { 
+        {
             c.lifes = 7;
         }
     }
