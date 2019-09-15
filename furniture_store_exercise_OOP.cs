@@ -14,6 +14,7 @@ namespace FurnitureStore_01
         }
         public static bool beetween(Furniture[] furnitures)
         {
+            // decide if there was a furniture in between 10.000 - 15.000 dollars
             bool answer = false;
             int i = 0;
             while (i < furnitures.Length && furnitures[i].Price >= 10000 && furnitures[i].Price <= 15000)
@@ -25,6 +26,7 @@ namespace FurnitureStore_01
         }
         public static void Sorter(Furniture[] furnitures)
         {
+            // sort the furnitures into 3 sub category according to the price
             Furniture[] under_30000 = new Furniture[furnitures.Length];
             Furniture[] between_30000_50000 = new Furniture[furnitures.Length];
             Furniture[] over_50000 = new Furniture[furnitures.Length];
@@ -57,6 +59,7 @@ namespace FurnitureStore_01
         }
         public static void mostExpensive(Furniture[] furnitures)
         {
+            // tell the most expensive furnitures' item number
             Furniture max = furnitures[0];
             for (int i = 0; i < furnitures.Length; i++)
             {
@@ -65,7 +68,7 @@ namespace FurnitureStore_01
                     max = furnitures[i];
                 }
             }
-            Console.WriteLine($"Most expensive furnitures item number: {max.ItemNumber}");
+            Console.WriteLine($"Most expensive furniture's item number: {max.ItemNumber}");
         }
     }
 }
