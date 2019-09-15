@@ -49,6 +49,8 @@ namespace QuadraticEquation_1
             else if (d == 0)
             {
                 Console.WriteLine("D is zero:");
+                double x1 = ((B * -1) + Math.Sqrt(d)) / (2 * A);
+                Console.WriteLine(x1);
             }
             else if (d < 0)
             {
