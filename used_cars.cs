@@ -71,11 +71,11 @@ namespace Cars_1
             byte state;
             do
             {
-                Console.Write("Plate: ");
+                Console.Write("Plate: \t\tAAA123");
                 plate = Console.ReadLine();
                 if (plate != "")
                 {
-                    Console.Write("State: ");
+                    Console.Write("State: \t\t0..100");
                     state = Byte.Parse(Console.ReadLine());
                     Car new_car = new Car(plate, state);
                     cars.Add(new_car);
