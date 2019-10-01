@@ -1,0 +1,12 @@
+John
+3,1
+Mary
+2,9
+Kim
+4,3
+Jack
+3,8
+Jill
+2,5
+Jim
+3,8
