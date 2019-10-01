@@ -22,7 +22,7 @@ namespace names_01
             {
                 total += s.average;
             }
-            Console.WriteLine($"Class average: {total / students.Count}");
+            Console.WriteLine($"Class average: {Math.Round(total / students.Count, 4)}");
         }
         
         public static void Best(List<Student> students)
