@@ -6,7 +6,7 @@ namespace Url_nicer
 {
     class Url
     {
-        // rebuilds the string when encounters a hyphened character it changes it the correspondant char.
+        // rebuilds the string when encounters a hyphened character the function changes it to the correspondant char.
         internal static string Clean(string url)
         {
             url = url.ToLower();
