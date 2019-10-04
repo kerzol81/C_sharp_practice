@@ -1,38 +1,49 @@
-static void URL_Nicer(string s) {
-            s = s.ToLower();
-            string cleaned = "";
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-            foreach (var item in s)
+namespace Url_nicer
+{
+    class Url
+    {
+        // rebuilds the string when encounters a hyphened character it changes it the correspondant char.
+        internal static string Clean(string url)
+        {
+            url = url.ToLower();
+            string nice_url = "";
+            foreach (var c in url)
             {
-                if (item is 'á')
+                if (c is 'á')
                 {
-                    cleaned += 'a';
+                    nice_url += 'a';
                 }
-                else if (item is 'é')
+                else if (c is 'é')
                 {
-                    cleaned += 'e';
+                    nice_url += 'e';
                 }
-                else if (item is 'í')
+                else if (c is 'í')
                 {
-                    cleaned += 'i';
+                    nice_url += 'i';
                 }
-                else if (item is 'ó' || item is 'ő' || item is 'ö')
+                else if (c is 'ó' || c is 'ö' || c is 'ő')
                 {
-                    cleaned += 'o';
+                    nice_url += 'o';
                 }
-                else if (item is 'ú' || item is 'ü' || item is 'ű')
+                else if (c is 'ú' || c is 'ü' || c is 'ű')
                 {
-                    cleaned += 'u';
+                    nice_url += 'u';
                 }
-                else if (item is ' ' || item is '.')
+                // etc with french chars...
+                else if (c is '.' || c is '-' || c is ' ')
                 {
-                    cleaned += '_';
+                    nice_url += '_';
                 }
                 else
                 {
-                    cleaned += item;
+                    nice_url += c;
                 }
             }
-            
-            Console.WriteLine(cleaned);
+            return nice_url;
         }
+    }
+}
