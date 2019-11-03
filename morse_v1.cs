@@ -104,7 +104,8 @@ namespace Morse_v1
             char c = ' ';
             while (c != '*')
             {
-                m.SearchAndBeep(m, Console.ReadKey().KeyChar);
+                c = Console.ReadKey().KeyChar;
+                m.SearchAndBeep(m, c);
             }
         }
     }
