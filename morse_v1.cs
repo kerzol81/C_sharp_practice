@@ -7,6 +7,10 @@ namespace Morse_v1
     {
         internal Dictionary<string, string> MorseTable = new Dictionary<string, string>();
 
+        short short_beep = 150;
+        short long_beep = 450;
+        short freq = 440;
+        
         public Morse()
         {
             MorseTable.Add("alpha", ".-");
@@ -54,9 +58,9 @@ namespace Morse_v1
             for (int i = 0; i < code.Length; i++)
             {
                 if (code[i] == '.')
-                    Console.Beep(440, 150);
+                    Console.Beep(freq, short_beep);
                 else
-                    Console.Beep(440, 400);
+                    Console.Beep(freq, long_beep);
             }
         }
         internal void DisplayTitle()
@@ -97,6 +101,7 @@ namespace Morse_v1
                     {
                         m.Beep(item.Value);
                     }
+
                 }
             }
         }
