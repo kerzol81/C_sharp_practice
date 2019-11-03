@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace Morse_v1
 {
     class Morse
@@ -55,10 +54,8 @@ namespace Morse_v1
             for (int i = 0; i < code.Length; i++)
             {
                 if (code[i] == '.')
-                {
                     Console.Beep(440, 150);
-                }
-                if (code[i] == '-')
+                else
                     Console.Beep(440, 400);
             }
         }
@@ -86,7 +83,7 @@ namespace Morse_v1
         {
             Morse m = new Morse();
             m.DisplayTitle();
-            
+
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             char c = ' ';
