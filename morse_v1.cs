@@ -10,7 +10,7 @@ namespace Morse_v1
         short short_beep = 150;
         short long_beep = 450;
         short freq = 440;
-        
+
         public Morse()
         {
             MorseTable.Add("alpha", ".-");
@@ -63,6 +63,17 @@ namespace Morse_v1
                     Console.Beep(freq, long_beep);
             }
         }
+
+        internal void SearchAndBeep(Morse m, char c)
+        {
+            foreach (KeyValuePair<string, string> item in m.MorseTable)
+            {
+                if (c == item.Key[0])
+                {
+                    m.Beep(item.Value);
+                }
+            }
+        }
         internal void DisplayTitle()
         {
             string title = "M O R S E      press * to quit";
@@ -93,16 +104,7 @@ namespace Morse_v1
             char c = ' ';
             while (c != '*')
             {
-                c = Console.ReadKey().KeyChar;
-
-                foreach (KeyValuePair<string, string> item in m.MorseTable)
-                {
-                    if (c == item.Key[0])
-                    {
-                        m.Beep(item.Value);
-                    }
-
-                }
+                m.SearchAndBeep(m, Console.ReadKey().KeyChar);
             }
         }
     }
