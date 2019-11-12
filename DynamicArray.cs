@@ -1,3 +1,5 @@
+// Runtime complexity: O(n)
+
 using System;
 
 namespace Arrays
