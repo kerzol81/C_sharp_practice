@@ -59,6 +59,30 @@ namespace Arrays
 
         }
 
+        internal void Insert(int index, int item)
+        {
+            //validate
+            if (index < 0 || index > counter)
+            {
+                throw new ArgumentOutOfRangeException("no such index");
+            }
+            
+            int[] temp = new int[counter + 1];
+            for (int i = 0; i < index; i++)
+            {
+                temp[i] = items[i];                
+            }
+            
+            temp[index] = item;
+            
+            for (int i = index; i < counter; i++)
+            {
+                temp[i + 1] = items[i];
+            }
+            counter++;
+            items = temp;
+        }
+
         internal int IndexOf(int item)
         {
             for (int i = 0; i < counter; i++)
@@ -74,6 +98,7 @@ namespace Arrays
 
         internal int MaxItem()
         {
+            // Runtime complexity id O(n)
             int max = items[0];
             for (int i = 1; i < counter; i++)
             {
@@ -97,7 +122,6 @@ namespace Arrays
             }
             return min;
         }
-
         internal void Intersect(Array other)
         {
             // Runtime complexity: O(n^2)
@@ -116,6 +140,18 @@ namespace Arrays
             {
                 Console.WriteLine(commons.items[i]);
             }
+        }
+        internal void Reverse()
+        {
+            // Runtime complexity : O(n)
+            int[] temp = new int[counter];
+
+            for (int i = counter - 1, j = 0; i >= 0; i--, j++)
+            {
+                temp[j] = items[i];
+
+            }
+            items = temp;
         }
     }
 }
