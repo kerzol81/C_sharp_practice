@@ -1,19 +1,18 @@
-// Runtime complexity: O(n)
-
 using System;
+
 
 namespace Arrays
 {
     class Array
     {
-        private int[] items;
-        private int counter;
+        int[] items;
+        int counter;
+
         public Array(int lenght)
         {
             items = new int[lenght];
         }
-
-        public void PrintArrayVertical()
+        internal void Print()
         {
             for (int i = 0; i < counter; i++)
             {
@@ -21,73 +20,48 @@ namespace Arrays
             }
         }
 
-        public void PrintArrayHorizontal()
+        internal void Append(int item)
         {
-            for (int i = 0; i < counter; i++)
+            //resize if full
+            if (items.Length == counter)
             {
-                Console.Write(items[i]);
-                Console.Write(' ');
-            }
-        }
-
-        public void Append(int n)
-        {
-
-            // resize if the array is full
-            if (counter == items.Length)
-            {
-                // size doubling
-                int[] new_items = new int[counter + 1];
-
-                // copy
+                int[] temp = new int[counter * 2];
                 for (int i = 0; i < counter; i++)
                 {
-                    new_items[i] = items[i];
+                    temp[i] = items[i];
                 }
-
-                items = new_items;
+                items = temp;
             }
-            // insert to the end
-            items[counter] = n;
+
+            // add to the end, and increment
+            items[counter] = item;
             counter++;
+
         }
-        public void RemoveAt(int index)
+
+        internal void Remove(int index)
         {
-            // validate the index, make sure it is in valid range
+            // validate index
             if (index < 0 || index >= counter)
             {
                 throw new ArgumentOutOfRangeException("no such index");
             }
-            // shift to the left
+            /*  
+                10, 20, 30, 40, 50   if index is 1, then
+                10, X, 30, 40, 50    count from index until the end
+                10, 30, 40, 50       cut off the end
+             */
             for (int i = index; i < counter; i++)
             {
                 items[i] = items[i + 1];
             }
-            // remove last, counter represents the total number of items in the array, not the size of the array
             counter--;
+            
+
         }
-        public void InsertAt(int index, int item)
+
+        internal int IndexOf(int item)
         {
-            //validate the index
-            if (index < 0 || index >= counter)
-            {
-                throw new ArgumentOutOfRangeException("index is out of range");
-            }
-            // fill a new list, longer list devided at the index
-            int[] new_items = new int[counter + 1];
-            new_items[index] = item;
-            for (int i = 0; i < index; i++)
-            {
-                new_items[i] = items[i];
-            }
-            for (int i = index ; i < counter; i++)
-            {
-                new_items[i + 1] = items[i];
-            }
-            items = new_items;
-            counter++;
-        }
-        public int IndexOf(int item) {
             for (int i = 0; i < counter; i++)
             {
                 if (items[i] == item)
@@ -95,7 +69,54 @@ namespace Arrays
                     return i;
                 }
             }
+            // if it wasnt found
             return -1;
+        }
+
+        internal int MaxItem()
+        {
+            int max = items[0];
+            for (int i = 1; i < counter; i++)
+            {
+                if (items[i] > max)
+                {
+                    max = items[i];
+                }
+            }
+            return max;
+             
+        }
+        internal int MinItem()
+        {
+            int min = items[0];
+            for (int i = 1; i < counter; i++)
+            {
+                if (items[i] < min)
+                {
+                    min = items[i];
+                }
+            }
+            return min;
+        }
+
+        internal void Intersect(Array other)
+        {
+            // Runtime complexity: O(n2)
+            Array commons = new Array(counter);
+            for (int i = 0; i < counter; i++)
+            {
+                for (int j = 0; j < other.counter; j++)
+                {
+                    if (items[i] == other.items[j])
+                    {
+                        commons.Append(items[i]);
+                    }
+                }
+            }
+            for (int i = 0; i < commons.counter; i++)
+            {
+                Console.WriteLine(commons.items[i]);
+            }
         }
     }
 }
