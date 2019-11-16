@@ -101,7 +101,7 @@ namespace Arrays
 
         internal void Intersect(Array other)
         {
-            // Runtime complexity: O(n2)
+            // Runtime complexity: O(n * n)
             Array commons = new Array(counter);
             for (int i = 0; i < counter; i++)
             {
