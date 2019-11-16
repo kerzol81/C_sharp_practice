@@ -1,6 +1,5 @@
 using System;
 
-
 namespace Arrays
 {
     class Array
@@ -56,7 +55,7 @@ namespace Arrays
                 items[i] = items[i + 1];
             }
             counter--;
-            
+
 
         }
 
@@ -84,7 +83,7 @@ namespace Arrays
                 }
             }
             return max;
-             
+
         }
         internal int MinItem()
         {
@@ -101,7 +100,7 @@ namespace Arrays
 
         internal void Intersect(Array other)
         {
-            // Runtime complexity: O(n * n)
+            // Runtime complexity: O(n^2)
             Array commons = new Array(counter);
             for (int i = 0; i < counter; i++)
             {
