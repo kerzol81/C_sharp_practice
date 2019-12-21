@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StopWatch
+namespace StopWatch_2
 {
     class StopWatch
     {
@@ -24,7 +22,7 @@ namespace StopWatch
                 running = true;
             }       
         }
-        public void Stop() {
+        public void Stop() {    
             if (!running)
             {
                 throw new InvalidOperationException("instance is not started");
@@ -33,10 +31,10 @@ namespace StopWatch
             {
                 stop_time = DateTime.Now;
             }
+            running = false;
         }
         public TimeSpan GetDuration()
         {
-            this.Stop();
             return stop_time - start_time;
         }
     }
