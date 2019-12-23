@@ -22,7 +22,6 @@ namespace StackOverFlowPost
                     _vote = 0;
                 }
             }
-
         }
 
         public Post(string title, string description, DateTime created)
