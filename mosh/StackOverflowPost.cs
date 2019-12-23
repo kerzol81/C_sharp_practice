@@ -11,7 +11,7 @@ namespace StackOverFlowPost
         public int Vote
         {
             get { return _vote; }
-            set {
+            private set {
                 
                 if (value > 0)
                 {
