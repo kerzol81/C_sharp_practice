@@ -10,7 +10,6 @@ class Stopwatch
                 throw new InvalidOperationException("Stopwatch has already been started");
             _start = DateTime.Now;
             _isRunning = true;
-
         }
         public static void Stop()
         {
@@ -18,7 +17,6 @@ class Stopwatch
                 throw new InvalidOperationException("Stopwatch was never started");
             _stop = DateTime.Now;
             _isRunning = false;
-
         }
         public static TimeSpan GetDuration()
         {
