@@ -1,19 +1,26 @@
-﻿using System;
+using System;
 
 namespace Polimorphism_Excercise
 {
-    abstract class DbConnection : Connection
+    abstract class DbConnection
     {
         public string ConnectionString { get; private set; }
-        public TimeSpan Timeout { get; private set; }
-
-        public DbConnection(string connectionstring)
+        public TimeSpan TimeOut { get; private set; }
+        protected DbConnection(string connectionString, TimeSpan timeOut)
         {
-            if (string.IsNullOrEmpty(connectionstring))
+            if (string.IsNullOrWhiteSpace(connectionString))
             {
-                throw new InvalidOperationException("connectionstring cannot be empty");
+                throw new InvalidOperationException("connection_string cannot be emtpty");
             }
-            this.ConnectionString = connectionstring;
+            ConnectionString = connectionString;
+            TimeOut = timeOut;
         }
+
+        protected DbConnection()
+        {
+        }
+
+        public abstract void Open();
+        public abstract void Close();
     }
 }
