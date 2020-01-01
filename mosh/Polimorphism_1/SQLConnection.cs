@@ -1,17 +1,23 @@
-﻿using System;
+using System;
 
 namespace Polimorphism_Excercise
 {
-    internal class SQLConnection : Connection
+    internal class SQLConnection : DbConnection
     {
+        string name = "sql connection";
+        public SQLConnection(string connetcionString, TimeSpan timeOut)
+            :base(connetcionString, timeOut)
+        {
+            
+        }
         public override void Open()
         {
-            Console.WriteLine("sql connection opening");
+            Console.WriteLine($"{name} opening");
         }
 
         public override void Close()
         {
-            Console.WriteLine("sql connection closing");
+            Console.WriteLine($"{name} closing");
         }
     }
 }
