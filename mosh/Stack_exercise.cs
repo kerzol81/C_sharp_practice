@@ -5,7 +5,7 @@ namespace Stack_exercise
 {
     sealed class Stack
     {
-        private List<object> items;
+        private readonly List<object> items;
         public Stack()
         {
             items = new List<object>();
