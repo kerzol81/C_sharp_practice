@@ -13,13 +13,13 @@ namespace Stack_exercise
         public void Push(object any)
         {
             if (any == null)
-                throw new InvalidOperationException("cannot add null object");
+                throw new InvalidOperationException("cannot add null object to stack");
             items.Add(any);
         }
         public object Pop()
         {
             if (items.Count == 0)
-                throw new InvalidOperationException("cannot pop from empty stack");
+                throw new InvalidOperationException("cannot pop from an empty stack");
             var last = items[items.Count - 1];
             items.Remove(last);
             return last;
@@ -27,7 +27,7 @@ namespace Stack_exercise
         public void Clear()
         {
             if (items.Count == 0)
-                throw new InvalidOperationException("an empty stack is useless clear");
+                throw new InvalidOperationException("an empty stack is useless to be cleared");
             items.Clear();
         }
     }
